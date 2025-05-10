@@ -1,0 +1,15 @@
+from flask import Flask, request, jsonify
+from chatbot.bot import get_response  # Assumes you have a function in bot.py
+
+app = Flask(_name_)
+
+@app.route('/', methods=['GET'])
+def home():
+    return "🤖 Intelligent Chatbot for Customer Support is Running!"
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.get_json()
+    user_input = data.get("message")
+    
+    if not user_input:
